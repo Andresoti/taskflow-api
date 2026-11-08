@@ -62,4 +62,6 @@ def downgrade() -> None:
     op.drop_table('projects')
     op.drop_index(op.f('ix_users_email'), table_name='users')
     op.drop_table('users')
+    # PostgreSQL enum types outlive their tables and need explicit cleanup.
+    sa.Enum(name='task_status').drop(op.get_bind(), checkfirst=False)
     # ### end Alembic commands ###

@@ -1,0 +1,19 @@
+# Allow only files needed to build the runtime image.
+**
+!Dockerfile
+!.dockerignore
+!requirements.txt
+!alembic.ini
+!alembic/
+!alembic/**
+!app/
+!app/**
+!docker/
+!docker/entrypoint.py
+
+# Exclude generated files even inside allowed source directories.
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/.env
+**/.env.*
